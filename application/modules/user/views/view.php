@@ -7,39 +7,39 @@
       <div class="card-body">
         <table class="table table-bordered table-striped">
           <tr>
-            <td>Full Name</td>
+            <td><?=cclang('Full Name');?></td>
             <td><?=$nama?></td>
           </tr>
 
           <tr>
-            <td>Email</td>
+            <td><?=cclang('Email');?></td>
             <td><?=$email?></td>
           </tr>
 
           <tr>
-            <td>Photo</td>
+            <td><?=cclang('image');?></td>
             <td>
               <?=imgView($photo);?>
             </td>
           </tr>
 
           <tr>
-            <td>Group</td>
+            <td><?=cclang('Group');?></td>
             <td><?=$group?></td>
           </tr>
 
           <tr>
-            <td>Is_active</td>
+            <td><?=cclang('Is Active');?></td>
             <td><?=$is_active == "1" ? '<i class="mdi mdi-eye text-success"></i> Y':'<i class="mdi mdi-eye-off text-danger"></i> N'?></td>
           </tr>
 
           <tr>
-            <td>Last login</td>
+            <td><?=cclang('Last login');?></td>
             <td><?=$last_login == "" ? "Null": date("d/m/Y H:i",strtotime($last_login))?></td>
           </tr>
 
           <tr>
-            <td>Join</td>
+            <td><?=cclang('Join');?></td>
             <td><?=$created == "" ? "Null": date("d/m/Y H:i",strtotime($created))?></td>
           </tr>
 
