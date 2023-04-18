@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>ยินดีต้อนรับ <?=$this->config->item("app"); ?> การติดตั่งระบบ</title>
+    <title>ยินดีต้อนรับ <?=$this->config->item("app"); ?> การติดตั้งระบบ</title>
 
     <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/ti-icons/css/themify-icons.css">
     <link href="<?=base_url()?>_temp/backend/css/icons.css" rel="stylesheet" type="text/css" />
@@ -131,7 +131,7 @@
             <div class="col-lg-8 mx-auto">
               <div class="card">
                 <div class="card-header">
-                  <?=ucfirst($this->config->item("app")); ?> การติดตั่งระบบ
+                  ยินดีต้อนรับ เข้าสู่โปรแกรมเว็บ<?=ucfirst($this->config->item("app")); ?> การติดตั้งระบบ
                 </div>
                 <div class="card-body">
                   <form id="wizard" action="#">
