@@ -11,9 +11,9 @@
         <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
           <thead>
             <tr>
-              <th>Group</th>
-              <th>Definition</th>
-              <th>Action</th>
+              <th><?=cclang("Group")?></th>
+              <th><?=cclang("Definition")?></th>
+              <th><?=cclang("Action")?></th>
             </tr>
           </thead>
 
