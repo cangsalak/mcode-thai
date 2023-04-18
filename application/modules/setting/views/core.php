@@ -21,42 +21,42 @@
           </tr>
 
           <tr>
-            <td class="table-title">Encryption Key</td>
+            <td class="table-title"><?=cclang("Encryption Key")?></td>
             <td>
               <a href="javascript:void(0);" id="encryption_key" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_key")?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title">Encryption Url</td>
+            <td class="table-title"><?=cclang("Encryption Url")?></td>
             <td>
-              <a href="javascript:void(0);" id="encryption_url" data-url="<?=url("setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_url") == 1 ? "Y":"N"?></a>
+              <a href="javascript:void(0);" id="encryption_url" data-url="<?=url("setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_url") == true ? cclang('TRUE'):cclang('No')?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title">Url suffix</td>
+            <td class="table-title"><?=cclang("Url suffix")?></td>
             <td>
               <a href="javascript:void(0);" id="url_suffix" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("url_suffix")?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title">Route admin</td>
+            <td class="table-title"><?=cclang("Route admin")?></td>
             <td>
               <a href="javascript:void(0);" id="route_admin" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="998" class="editable editable-click" title="<?=cclang("update")?>"><?=ADMIN_ROUTE?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title">Route login</td>
+            <td class="table-title"><?=cclang("Route login")?></td>
             <td>
               <a href="javascript:void(0);" id="route_login" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="998" class="editable editable-click" title="<?=cclang("update")?>"><?=LOGIN_ROUTE?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title">Max Upload</td>
+            <td class="table-title"><?=cclang("Max Upload")?></td>
             <td>
               <a href="javascript:void(0);" id="max_upload" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("max_upload")?></a> Kb
             </td>
@@ -72,14 +72,14 @@
           <tr>
             <td class="table-title"><?=cclang("user_log_activity")?></td>
             <td>
-              <a href="javascript:void(0);" id="user_log_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('user_log_status')?>" data-pk="61" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('user_log_status')?></a>
+              <a href="javascript:void(0);" id="user_log_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('user_log_status')?>" data-pk="61" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('user_log_status') == 'Y' ? cclang('Yes'):cclang('No')?></a>
             </td>
           </tr>
 
           <tr>
             <td class="table-title"><?=cclang("maintenance")?></td>
             <td>
-              <a href="javascript:void(0);" id="maintenance_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('maintenance_status')?>" data-pk="60" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('maintenance_status')?></a>
+              <a href="javascript:void(0);" id="maintenance_status" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('maintenance_status')?>" data-pk="60" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('maintenance_status') == 'Y' ? cclang('Yes'):cclang('No')?></a>
             </td>
           </tr>
         </table>
@@ -104,12 +104,11 @@ $(document).ready(function(){
                                '<i class="fa fa-fw fa-times"></i>' +
                                '</button>';
 
-
   $('#maintenance_status').editable({
     inputclass: 'form-control-sm',
     source: [
-  			{value: 'Y', text: 'Y'},
-  			{value: 'N', text: 'N'}
+  			{value: 'Y', text: '<?=cclang('Yes')?>'},
+  			{value: 'N', text: '<?=cclang('No')?>'}
   		],
     success: function(data) {
      if (data.success != true) {
@@ -130,8 +129,8 @@ $(document).ready(function(){
   $('#encryption_url').editable({
     inputclass: 'form-control-sm',
     source: [
-  			{value: "TRUE", text: 'Y'},
-  			{value: "FALSE", text: 'N'}
+  			{value: "TRUE", text: '<?=cclang('TRUE')?>'},
+  			{value: "FALSE", text: '<?=cclang('FALSE')?>'}
   		],
     success: function(data) {
      if (data.success != true) {
@@ -180,12 +179,11 @@ $(document).ready(function(){
    }
   });
 
-
   $('#user_log_status').editable({
     inputclass: 'form-control-sm',
     source: [
-  			{value: 'Y', text: 'Y'},
-  			{value: 'N', text: 'N'}
+  			{value: 'Y', text: '<?=cclang('Yes')?>'},
+  			{value: 'N', text: '<?=cclang('No')?>'}
   		],
     success: function(data) {
      if (data.success != true) {
@@ -207,7 +205,6 @@ $(document).ready(function(){
    }
   });
 
-
   $('#time_zone').editable({
     inputclass: 'form-control-sm',
     source: <?=$time_zone?>,
@@ -217,7 +214,6 @@ $(document).ready(function(){
      }
    }
   });
-
 
 });
 </script>
