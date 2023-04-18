@@ -95,11 +95,11 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" id="reset-pwd" href="<?=url("core/reset_password")?>">
                 <i class="mdi mdi-key-change text-primary"></i>
-                Change Password
+                <?=cclang("Change Password")?>
               </a>
               <a class="dropdown-item" href="<?=site_url("logout")?>">
                 <i class="ti-power-off text-primary"></i>
-                Logout
+                <?=cclang("Logout")?>
               </a>
             </div>
           </li>
