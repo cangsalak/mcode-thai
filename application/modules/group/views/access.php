@@ -8,7 +8,7 @@
         <p class="card-description"><?=ucwords($group)?> - <?=$definition?></p>
         <div class="row">
           <div class="col-sm-4">
-            <input type="text" id="search" name="search" placeholder="Filter Permission">
+            <input type="text" id="search" name="search" placeholder="<?=cclang("Filter Permission")?>">
           </div>
           <div class="col-sm-2">
             <div class="form-check form-check-primary">
@@ -35,7 +35,7 @@
       <hr>
       <a href="<?=url("group")?>" class="btn btn-sm btn-danger"><?=cclang("cancel")?></a>
       <button type="submit" name="submit" class="btn btn-sm btn-primary"><?=cclang("save")?></button>
-      <a href="javascript:window.location.reload();" style="display:none" class="btn btn-sm btn-dark restore"> Restore</a>
+      <a href="javascript:window.location.reload();" style="display:none" class="btn btn-sm btn-dark restore"> <?=cclang("Restore")?></a>
     </form>
   </div>
 </div>
