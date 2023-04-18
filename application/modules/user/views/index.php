@@ -11,14 +11,14 @@
         <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Full Name</th>
-              <th>Email</th>
-              <th>Group</th>
-              <th>Is Active</th>
-              <th>Join</th>
-              <th>Last login</th>
-              <th>#</th>
+              <th><?=cclang('image');?></th>
+              <th><?=cclang('Full Name');?></th>
+              <th><?=cclang('Email');?></th>
+              <th><?=cclang('Group');?></th>
+              <th><?=cclang('Is Active');?></th>
+              <th><?=cclang('Join');?></th>
+              <th><?=cclang('Last login');?></th>
+              <th><?=cclang('action');?></th>
             </tr>
           </thead>
 
