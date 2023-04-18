@@ -1,27 +1,27 @@
-<h3>Site & User Configuration</h3>
+<h3>การกำหนดค่าเว็บไซต์และผู้ใช้</h3>
 <section>
   <div class="row">
     <div class="col-lg-12 steps5 card-description">
-      <h4>Site & User Configuration</h4>
+      <h4>การกำหนดค่าเว็บไซต์และผู้ใช้</h4>
       <hr>
       <div class="form-group">
-        <label for="">App/Web Name</label>
-        <input type="text" class="form-control" id="app_name" id="app_name" placeholder="App/Web Name">
+        <label for="">ชื่อแอพ/เว็บ</label>
+        <input type="text" class="form-control" id="app_name" id="app_name" placeholder="ชื่อแอพ/เว็บ">
       </div>
 
       <div class="form-group">
-        <label for="">Developer Name</label>
-        <input type="text" class="form-control" id="dev_name" name="dev_name" placeholder="Developer Name">
+        <label for="">ชื่อผู้พัฒนา</label>
+        <input type="text" class="form-control" id="dev_name" name="dev_name" placeholder="ชื่อผู้พัฒนา">
       </div>
 
       <div class="form-group">
-        <label for="">Email</label>
-        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+        <label for="">อีเมล์</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="อีเมล์">
       </div>
 
       <div class="form-group">
-        <label for="">Password</label>
-        <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+        <label for="">รหัสผ่าน</label>
+        <input type="text" class="form-control" id="password" name="password" placeholder="รหัสผ่าน">
       </div>
 
 

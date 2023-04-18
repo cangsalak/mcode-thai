@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Wellcome <?=$this->config->item("app"); ?> Instalation</title>
+    <title>ยินดีต้อนรับ <?=$this->config->item("app"); ?> การติดตั่งระบบ</title>
 
     <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/ti-icons/css/themify-icons.css">
     <link href="<?=base_url()?>_temp/backend/css/icons.css" rel="stylesheet" type="text/css" />
@@ -28,8 +28,16 @@
     <script src="<?=base_url()?>_temp/backend/vendors/jquery-steps/jquery.steps.min.js"></script>
     <script src="<?=base_url()?>_temp/backend/vendors/sweetalert/sweetalert.min.js"></script>
 
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 
     <style media="screen">
+      *{
+        font-family: 'Sarabun', sans-serif;
+      }
       select{
         color:#2f2f2f!important;
       }
@@ -111,19 +119,19 @@
     <div class="container-scroller">
       <div id="loading">
         <div class="spinner-grow spinner-grow-lg" role="status">
-          <span class="sr-only">Loading...</span>
+          <span class="sr-only">กำลังประมวลผล...</span>
         </div>
-        <p class="ld">Loading...</p>
+        <p class="ld">กำลังประมวลผล...</p>
       </div>
       <!-- partial -->
       <div class="main-panel" style="width:100%!important;min-height:650px!important">
         <div class="content-wrapper">
 
           <div class="row">
-            <div class="col-lg-10 mx-auto">
+            <div class="col-lg-8 mx-auto">
               <div class="card">
                 <div class="card-header">
-                  <?=ucfirst($this->config->item("app")); ?> Instalation
+                  <?=ucfirst($this->config->item("app")); ?> การติดตั่งระบบ
                 </div>
                 <div class="card-body">
                   <form id="wizard" action="#">
