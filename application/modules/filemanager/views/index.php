@@ -8,7 +8,7 @@
         <div class="mb-1">
           <a href="<?=url("filemanager/add")?>" id="add" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i> <?=cclang("add_new")?></a>
           <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i> <?=cclang("reload")?></button>
-          <a href="<?=url("filemanager/filter/")?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
+          <a href="<?=url("filemanager/filter/")?>" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> <?=cclang("Filter")?></a>
           <a href="<?=url("filemanager/delete")?>" id="delete_select" class="btn btn-sm btn-danger btn-icon-text"><i class="ti-trash btn-icon-prepend"></i> <?=cclang("delete_selected")?></a>
         </div>
 
@@ -16,12 +16,12 @@
           <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Image</th>
-  							<th>File Name</th>
-                <th>Ket</th>
-                <th>Created</th>
-                <th>#</th>
+                <th><?=cclang("#")?></th>
+                <th><?=cclang("Image")?></th>
+  							<th><?=cclang("File Name")?></th>
+                <th><?=cclang("Ket")?></th>
+                <th><?=cclang("Created")?></th>
+                <th><?=cclang("action")?></th>
               </tr>
             </thead>
           </table>
