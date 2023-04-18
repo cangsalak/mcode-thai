@@ -23,7 +23,17 @@
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/fancybox/jquery.fancybox.min.css" />
   <link rel="stylesheet" href="<?=base_url()?>_temp/backend/vendors/summernote/dist/summernote-bs4.css">
   <!-- End plugin css for this page -->
+  
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style media="screen">
+    
+    *{
+      font-family: 'Sarabun', sans-serif;
+    }
     .form-group label{
       font-weight: 600;
     }
