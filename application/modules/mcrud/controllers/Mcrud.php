@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// require_once APPPATH . 'modules/mcrud/controllers/Dicoba.php';
 
 class Mcrud extends Backend{
 
@@ -17,7 +16,22 @@ class Mcrud extends Backend{
   function index()
   {
     $this->is_allowed('crud_generator_add');
-    $rm = array("modules_crud_generator","setting","main_menu","ci_user_login","ci_user_log","ci_sessions","auth_user","auth_user_to_group","auth_permission","auth_permission_to_group","auth_group","main_menu","filemanager","migrations");
+    $rm = array(
+      "modules_crud_generator",
+      "setting",
+      "main_menu",
+      "ci_user_login",
+      "ci_user_log",
+      "ci_sessions",
+      "auth_user",
+      "auth_user_to_group",
+      "auth_permission",
+      "auth_permission_to_group",
+      "auth_group",
+      "main_menu",
+      "filemanager",
+      "migrations"
+    );
     $table = $this->db->list_tables();
     $getTable = array_diff($table, $rm);
     $this->data['title'] = $this->title;
@@ -73,6 +87,7 @@ class Mcrud extends Backend{
 
         $module_folder = strtolower($controllers);
         $view_path = APPPATH . '/modules/'.$module_folder.'/views/';
+  			$controller_path_api = APPPATH . '/modules/'.$module_folder.'/controllers/api/';
   			$controller_path = APPPATH . '/modules/'.$module_folder.'/controllers/backend/';
   			$model_path = APPPATH . '/modules/'.$module_folder.'/models/';
 
@@ -81,13 +96,13 @@ class Mcrud extends Backend{
         $dir_modules[] = APPPATH.'/modules/'.$module_folder.'/views';
         $dir_modules[] = APPPATH.'/modules/'.$module_folder.'/controllers';
         $dir_modules[] = APPPATH.'/modules/'.$module_folder.'/controllers/backend';
+        $dir_modules[] = APPPATH.'/modules/'.$module_folder.'/controllers/api';
+
         foreach ($dir_modules as $dir) {
-            	if (!is_dir($dir)) {
-								mkdir($dir);
-							}
-            }
-
-
+          if (!is_dir($dir)) {
+            mkdir($dir);
+          }
+        }
       $data = [
 				'php_open_tag' 				=> '<?php',
 				'php_close_tag' 			=> '?>',
@@ -101,9 +116,15 @@ class Mcrud extends Backend{
 
       $template_crud_path = 'mcrud/';
 
+      // controller API
+			$builder_controller_api = $this->parser->parse($template_crud_path.'build_controller_api', $data, true);
+			write_file($controller_path_api.$controllers.'.php', $builder_controller_api);
+      
+      // controller
 			$builder_controller = $this->parser->parse($template_crud_path.'build_controller', $data, true);
 			write_file($controller_path.$controllers.'.php', $builder_controller);
 
+      // model
       $builder_model = $this->parser->parse($template_crud_path.'build_model', $data, true);
 			write_file($model_path.$controllers.'_model.php', $builder_model);
 
@@ -112,16 +133,6 @@ class Mcrud extends Backend{
       $insert_role_access[] = array('permission' => strtolower($controllers)."_list",
                                       'definition' =>"Module ".strtolower($controllers)
                                     );
-
-
-    //   $show_in_filter = $this->mcrud_build->showInFilter();
-    //   if (count($show_in_filter) > 0) {
-    //   $builder_filter = $this->parser->parse($template_crud_path.'build_filter', $data, true);
-		// 	write_file($view_path.'filter.php', $builder_filter);
-    //   $insert_role_access[] = array('permission' => strtolower($controllers)."_filter",
-    //                                 'definition' =>"Module ".strtolower($controllers)
-    //                               );
-    // }
 
       $show_in_view = $this->mcrud_build->showInView();
       if (count($show_in_view) > 0) {
@@ -149,6 +160,11 @@ class Mcrud extends Backend{
                                       'definition' =>"Module ".strtolower($controllers)
                                       );
       }
+      
+      
+      $this->lang_generation(APPPATH . '/language/thailand/app_lang.php');
+      $this->lang_generation(APPPATH . '/language/english/app_lang.php');
+        
 
         $insert = array('module' => $controllers,
                         'module_name' => $title,
@@ -177,7 +193,23 @@ class Mcrud extends Backend{
     }
 
   }
+  
+  function lang_generation($path)
+  {
+    // ค้นหาบรรทัดว่างสุดในไฟล์ app_lang.php
+    $file = $path;
+    $content = file_get_contents($file);
+    $last_line = strrpos($content, "\n") + 1;
 
+    // เพิ่มโค้ดสร้างไฟล์อัตโนมัติหลังบรรทัดสุดท้าย
+    $new_content = substr($content, 0, $last_line) . $this->parser->parse($template_crud_path.'build_lang', $data, true).
+    substr($content, $last_line);
+
+    // เขียนเนื้อหาใหม่ลงไฟล์ config.php
+    file_put_contents($file, $new_content);
+    
+    return true;
+  }
 
   function change_form_group($params = null)
   {

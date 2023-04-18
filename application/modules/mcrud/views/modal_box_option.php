@@ -10,4 +10,4 @@
     </div>
   </div>
 </div>
-<a class="btn btn-sm btn-block add-option"><i class="fa fa-plus"></i> Add New</a>
+<a class="btn btn-sm btn-block add-option"><i class="fa fa-plus"></i> เพิ่มใหม่</a>

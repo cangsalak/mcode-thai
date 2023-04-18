@@ -9,13 +9,13 @@
       </div>
       <div class="card-body">
         <div class="mb-2">
-<?php if (count($show_in_add) > 0): ?>
+      <?php if (count($show_in_add) > 0): ?>
           <a href="{php_open_tag_echo}url("<?=strtolower($controller)?>/add"){php_close_tag}" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i>{php_open_tag_echo}cclang("add_new"){php_close_tag}</a>
-<?php endif; ?>
-          <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i> <?=cclang("reload")?></button>
-<?php if (count($show_in_filter) > 0): ?>
-          <a href="{php_open_tag_echo}url("<?=strtolower($controller)?>/filter/"){php_close_tag}" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i> Filter</a>
-<?php endif; ?>
+      <?php endif; ?>
+          <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i>{php_open_tag_echo}cclang("reload"){php_close_tag}</button>
+      <?php if (count($show_in_filter) > 0): ?>
+          <a href="{php_open_tag_echo}url("<?=strtolower($controller)?>/filter/"){php_close_tag}" id="filter-show" class="btn btn-sm btn-primary btn-icon-text"><i class="mdi mdi-magnify btn-icon-prepend"></i>{php_open_tag_echo}cclang("Filter"){php_close_tag}</a>
+      <?php endif; ?>
         </div>
 
         <form autocomplete="off" class="content-filter">
@@ -73,25 +73,25 @@
 <?php endforeach; ?>
             <div class="col-md-12">
               <button type='button' class='btn btn-default btn-sm' id="filter-cancel">{php_open_tag_echo}cclang("cancel"){php_close_tag}</button>
-              <button type="button" class="btn btn-primary btn-sm" id="filter">Filter</button>
+              <button type="button" class="btn btn-primary btn-sm" id="filter">{php_open_tag_echo}cclang("Filter"){php_close_tag}</button>
             </div>
           </div>
         </form>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+            <thead>
+              <tr>
+                <?php $show_in_table = $this->mcrud_build->showInTable(true);
+                  foreach ($show_in_table as $field):?>
+                    <th>{php_open_tag_echo}cclang("<?=$field?>"){php_close_tag}</th>
+                  <?php endforeach; ?>
 
-        <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-          <thead>
-            <tr><?php $show_in_table = $this->mcrud_build->showInTable(true);
-                foreach ($show_in_table as $field) {
-                  echo "\n\t\t\t\t\t\t\t<th>".$field."</th>";
-                }
-               ?>
+                <th>#</th>
+              </tr>
+            </thead>
 
-              <th>#</th>
-            </tr>
-          </thead>
-
-        </table>
-
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -209,7 +209,5 @@ var table;
             }
           });
   });
-
-
 });
 </script>

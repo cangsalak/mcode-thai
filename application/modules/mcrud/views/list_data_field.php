@@ -1,32 +1,13 @@
-<div class="col-md-8 mx-auto">
+<div class="col-md-12 mx-auto">
+  <div class="row">
   <?php $i = 1; foreach ($this->db->field_data("$table") as $row):?>
 
 
-  <div class="row mt-4">
-    <div class="col-sm-4">
-      <div class="card card-border-radius">
-        <div class="card-body">
-          <table class="table-list">
-            <tr>
-              <td class="bold">No</td>
-              <td>: <?=$i?></td>
-            </tr>
-            <tr>
-              <td class="bold">Field name</td>
-              <td>: <?=$row->name?></td>
-            </tr>
-            <tr>
-              <td class="bold">Type</td>
-              <td>: <?=$row->type?>(<?=$row->max_length?>)</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-sm-8">
+    <div class="col-sm-4  mt-4">
       <div class="card card-border-radius">
         <div class="card-body card-content">
+          <div class="forms">ลำดับ : <?=$i?> ชื่อฟิลด์ : <?=$row->name?> ประเภท : <?=$row->type?>(<?=$row->max_length?>)</div>
             <div class="forms">
               <?php if ($row->primary_key > 0): ?>
                 <input type="hidden" name="primary_key" id="primary_key" value="<?=$row->name?>">
@@ -36,7 +17,7 @@
 
               <table class="table-show-in">
                   <tr>
-                    <th colspan="4">Show In</th>
+                    <th colspan="4">แสดงที่ใด</th>
                   </tr>
 
                   <tr>
@@ -44,7 +25,7 @@
                       <div class="form-check form-check-flat form-check-primary mb-3">
                         <label class="form-check-label">
                           <input type="checkbox" <?=$row->primary_key < 1 ? "checked":""?> class="form-check-input" name="mcrud[<?=$i?>][<?=$row->name?>][show_in_table]" value="true">
-                          Column Table
+                          หน้าหลัก
                         <i class="input-helper"></i></label>
                       </div>
                     </td>
@@ -53,7 +34,7 @@
                       <div class="form-check form-check-flat form-check-primary mb-3">
                         <label class="form-check-label">
                           <input type="checkbox" <?=$row->primary_key < 1 ? "checked":""?> class="form-check-input" name="mcrud[<?=$i?>][<?=$row->name?>][show_in_add]" value="true">
-                          Form Add
+                          หน้าเพิ่มข้อมูล
                         <i class="input-helper"></i></label>
                       </div>
                     </td>
@@ -62,7 +43,7 @@
                       <div class="form-check form-check-flat form-check-primary mb-3">
                         <label class="form-check-label">
                           <input type="checkbox" <?=$row->primary_key < 1 ? "checked":""?> class="form-check-input" name="mcrud[<?=$i?>][<?=$row->name?>][show_in_update]" value="true">
-                          Form Update
+                          หน้าแก้ไข
                         <i class="input-helper"></i></label>
                       </div>
                     </td>
@@ -71,7 +52,7 @@
                       <div class="form-check form-check-flat form-check-primary mb-3">
                         <label class="form-check-label">
                           <input type="checkbox" <?=$row->primary_key < 1 ? "checked":""?> class="form-check-input" name="mcrud[<?=$i?>][<?=$row->name?>][show_in_view]" value="true">
-                          View
+                          หน้าดูข้อมูล
                         <i class="input-helper"></i></label>
                       </div>
                     </td>
@@ -80,7 +61,7 @@
                       <div class="form-check form-check-flat form-check-primary mb-3">
                         <label class="form-check-label">
                           <input type="checkbox" <?=$row->primary_key < 1 ? "checked":""?> class="form-check-input" name="mcrud[<?=$i?>][<?=$row->name?>][show_in_filter]" value="true">
-                          Filter
+                          การกรอง
                         <i class="input-helper"></i></label>
                       </div>
                     </td>
@@ -91,14 +72,14 @@
 
 
               <div class="form-group">
-                  <label >Label</label>
+                  <label >ชื่อ</label>
                   <input type="text" class="form-control form-control-sm" name="mcrud[<?=$i?>][<?=$row->name?>][field_label]" value="<?=str_replace("_", " ", ucwords($row->name))?>">
               </div>
 
 
 
               <div class="form-group mb-0">
-                <label for="">Form Type</label>
+                <label for="">ปรเภทฟอร์ม</label>
                 <select class="form-control chosen chosen-select-width form_type" name="mcrud[<?=$i?>][<?=$row->name?>][form_type]" id="mcrud[<?=$i?>][<?=$row->name?>][form_type]">
                   <?php foreach ($form_type as $form_types): ?>
                     <?php
@@ -180,9 +161,9 @@
         </div>
       </div>
     </div>
-  </div>
 
 
   <?php $i++ ?>
   <?php  endforeach; ?>
 </div>
+  </div>

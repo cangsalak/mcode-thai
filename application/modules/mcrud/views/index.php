@@ -24,10 +24,17 @@
     <script src="<?=base_url()?>_temp/backend/vendors/select2/select2.min.js"></script>
     <script src="<?=base_url()?>_temp/backend/vendors/chosen/chosen.jquery.min.js" type="text/javascript"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <script type="text/javascript">
       var BASE_URL = "<?=base_url()?>";
     </script>
     <style media="screen">
+    *{
+      font-family: 'Sarabun', sans-serif;
+    }
     body{
       background: #142935!important
     }
@@ -245,19 +252,19 @@
   <body>
     <div class="loading-keyboard">
       <img src="<?=base_url()?>_temp/backend/loading.svg" alt="">
-      <p>Sabar Yahhh!!! Lagi Ngoding...</p>
+      <p>อดทนรอสักครู่นะครับ ...</p>
     </div>
     <div class="container-scroller">
         <div class="content-wrapper" >
           <form id="form" action="<?=base_url("mcrud/action")?>" autocomplete="off">
-          <div class="mb-3 col-lg-8 mx-auto">
+          <div class="mb-3 col-lg-6 mx-auto">
             <div class="card card-table">
               <!-- <div class="card-header bg-primary text-white">
                 <?=$title?>
               </div> -->
               <div class="card-body">
                   <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Select Table</label>
+                      <label class="col-sm-2 col-form-label">เลือกตาราง จากฐานข้อมูล</label>
                       <div class="col-sm-10">
                         <select class="form-control form-control-sm select-option" style="width:100%;" name="table" id="table" data-placeholder="Select Table">
                           <option value=""></option>
@@ -269,7 +276,7 @@
                     </div>
 
                     <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Title</label>
+                      <label class="col-sm-2 col-form-label">หัวเรื่อง</label>
                       <div class="col-sm-10">
                         <input class="form-control form-control-sm" type="text" name="title" id="title" placeholder="Title"/>
                       </div>
@@ -290,7 +297,7 @@
             <div class="spinner-grow text-primary"></div>
             <div class="spinner-grow text-primary"></div>
             <div class="spinner-grow text-primary"></div>
-            <p>Loading...</p>
+            <p>กำลังโหลด...</p>
           </div>
 
           <div id="content-crud"></div>
@@ -303,8 +310,8 @@
           </div>
 
           <div class="text-center mt-5 mb-5">
-            <a type="submit" href="<?=url('m_crud_generator')?>" class="btn btn-lg btn-danger"> Cancel</a>
-            <button type="submit" name="button" class="btn btn-lg btn-primary" id="submit"> Build module</button>
+            <a type="submit" href="<?=url('m_crud_generator')?>" class="btn btn-lg btn-danger"> ยกเลิก</a>
+            <button type="submit" name="button" class="btn btn-lg btn-primary" id="submit"> สร้างโมดูล</button>
           </div>
 
         </form>

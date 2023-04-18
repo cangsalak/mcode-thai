@@ -26,7 +26,7 @@
               <input type="text" class="form-control form-control-sm file-upload-info file-name" data-id="<?=$field?>" placeholder="<?=label($field)?>" readonly name="<?=$field?>" />
             <span class="input-group-append">
               <button class="btn-remove-image btn btn-danger btn-sm" type="button" data-id="<?=$field?>" style="display:{php_open_tag_echo}$<?=$field?>!=''?'block':'none'{php_close_tag};"><i class="ti-trash"></i></button>
-              <button class="file-upload-browse btn btn-primary btn-sm" data-id="<?=$field?>" type="button">Select File</button>
+              <button class="file-upload-browse btn btn-primary btn-sm" data-id="<?=$field?>" type="button">{php_open_tag_echo}cclang("Select File"){php_close_tag}</button>
             </span>
             </div>
             <div id="<?=$field?>"></div>

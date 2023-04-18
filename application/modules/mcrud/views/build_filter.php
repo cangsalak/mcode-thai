@@ -4,13 +4,13 @@
 
   <div class="form-group">
 <?php if (formType($field) == "datetime" OR formType($field) == "timestamp"): ?>
-    <input type="datetime-local" id="<?=$field?>" class="form-control form-control-sm" placeholder="<?=label($field)?>" />
+    <input type="datetime-local" id="<?=$field?>" class="form-control form-control-sm" placeholder="<?=cclang($field)?>" />
 <?php elseif(formType($field) == "time"): ?>
-    <input type="datetime-local" id="<?=$field?>" class="form-control form-control-sm" placeholder="<?=label($field)?>" />
+    <input type="datetime-local" id="<?=$field?>" class="form-control form-control-sm" placeholder="<?=cclang($field)?>" />
 <?php elseif(formType($field) == "time"): ?>
-    <input type="time" id="<?=$field?>" class="form-control form-control-sm" placeholder="<?=label($field)?>" />
+    <input type="time" id="<?=$field?>" class="form-control form-control-sm" placeholder="<?=cclang($field)?>" />
 <?php elseif(formType($field) == "select"): ?>
-    <select class="form-control form-control-sm select2" data-placeholder=" -- Select <?=label($field)?> -- " name="<?=$field?>" id="<?=$field?>">
+    <select class="form-control form-control-sm select2" data-placeholder=" -- Select <?=cclang($field)?> -- " name="<?=$field?>" id="<?=$field?>">
       <option value=""></option>
 <?php
     $fieldOption = optionValue($field);
@@ -20,7 +20,7 @@
 <?php  } ?>
     </select>
 <?php elseif(formType($field) == "option"): ?>
-      <label class="mb-0"><?=label($field)?></label>
+      <label class="mb-0"><?=cclang($field)?></label>
 <?php
   $fieldOption = optionValue($field);
 for ($x=0; $x < count($fieldOption) ; $x++) {
@@ -54,7 +54,7 @@ for ($x=0; $x < count($fieldOption) ; $x++) {
 <?php endforeach; ?>
 
   <button type='button' class='btn btn-default btn-sm' data-dismiss='modal'>{php_open_tag_echo}cclang("cancel"){php_close_tag}</button>
-  <button type="button" class="btn btn-primary btn-sm" id="filter">Filter</button>
+  <button type="button" class="btn btn-primary btn-sm" id="filter">{php_open_tag_echo}cclang("Filter"){php_close_tag}</button>
 </form>
 
 <script type="text/javascript">

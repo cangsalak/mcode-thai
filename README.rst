@@ -1,9 +1,9 @@
 ###################
-m-code panel + m-crud generator codeigniter 3
+M-code thailand panel + M-code thailand generator codeigniter 3
 ###################
 
 **************************
-Features
+คุณสมบัติ *** กรุณาอ่าน ***
 **************************
 
 - M-CRUD Generator
@@ -21,27 +21,31 @@ Features
 - encryption url
 - update timezone
 - update encryption key
-- update language english and indonesia
+- update language english and thailand
 - support ajax crud
 - support Datatable serverside
 - support text editor summernote inculde module file manager
-- Bulilt in PHP Version 7.4.10
+- Bulilt in PHP Version 7.4.26
 - tester web hosting php version 5.6 - 7.4
 - CI Version 3.1.11
 
 
-- Youtube: https://youtu.be/9g9Z56_PTYo
+- Youtube: https://www.facebook.com/maxcangsalak
 
-- facebook: https://web.facebook.com/mpampam
+- facebook: https://www.facebook.com/maxcangsalak
 
-- fanspage: https://web.facebook.com/programmerjalanan
-
-
+- fanspage: https://www.youtube.com/channel/UCQMpYmqbXlUBEJ_z3XPupdA
 
 
-Untuk membantu kami mengembangkan tools ini bisa dengan cara donasi buat ngopi  :)
-
-BNI 0330538612 / Muh.irfan ibnu
 
 
-#salam_keyboard!!!! :)
+เพื่อช่วยเราพัฒนาเครื่องมือเหล่านี้ คุณสามารถบริจาคค่ากาแฟได้ :)
+
+กรุงไทย 1130299147 / นาย เยาวรัตน์  ช่างสลัก
+
+
+**************************
+การติดตั้งระบบ
+**************************
+1. ตรวจเช็ตการตั้งค่าฐานข้อมูล โดยเข้าไปที่ Application->config->database.php และกำหนดค่าให้ถูกต้อง
+2. ดำเนินการให้แล้วเสร็จ ท่านก็จะพร้อมใช้งานระบบ

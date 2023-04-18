@@ -12,10 +12,10 @@ $cek_relation = $this->mcrud_build->checkoptionRelation();
 /*| version : <?=$this->config->item('version')?> */
 /*| facebook : <?=$this->config->item('facebook')?> */
 /*| fanspage : <?=$this->config->item('fanspage')?> */
-/*| instagram : <?=$this->config->item('instagram')?> */
+/*| website : <?=$this->config->item('website')?> */
 /*| youtube : <?=$this->config->item('youtube')?> */
 /*| --------------------------------------------------------------------------*/
-/*| Generate By M-CRUD Generator <?=date('d/m/Y H:i')?>*/
+/*| Generate By <?=$this->config->item('author')?> Generator <?=date('d/m/Y H:i')?>*/
 /*| Please DO NOT modify this information*/
 
 
