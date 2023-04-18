@@ -5,18 +5,18 @@
       <div class="card">
         <div class="card-body">
           <?=$this->load->view("menu")?>
-          <h4 class="card-title"><?=ucfirst($title_module)?> / Default</h4>
+          <h4 class="card-title"><?=ucfirst($title_module)?> / <?=cclang("Default")?></h4>
           <?php if (is_allowed("config_view_default")): ?>
           <table class="table-setting table-striped table-hover">
             <tr>
-              <td class="table-title"><?=cclang("title")?> Web/App</td>
+              <td class="table-title"><?=cclang("title")?> <?=cclang("Web/App")?></td>
               <td>
                 <a href="javascript:void(0);" id="web_name" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="1" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('web_name')?></a>
               </td>
             </tr>
 
             <tr>
-              <td class="table-title">Url/Domain</td>
+              <td class="table-title"><?=cclang("Url/Domain")?></td>
               <td>
                 <a href="javascript:void(0);" id="web_domain" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="2" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('web_domain')?></a>
               </td>
@@ -30,7 +30,7 @@
             </tr>
 
             <tr>
-              <td class="table-title">Email</td>
+              <td class="table-title"><?=cclang("Email")?></td>
               <td>
                 <a href="javascript:void(0);" id="email" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="4" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('email')?></a>
               </td>
