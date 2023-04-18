@@ -1,39 +1,31 @@
 <div class="row">
-  <div class="col-md-12 col-xl-12 mx-auto animated fadeIn delay-2s">
-    <div class="card m-b-30">
+  <div class="col-md-12 col-xl-10 mx-auto animated fadeIn delay-2s">
+    <div class="card">
       <div class="card-header bg-primary text-white">
         <?=ucwords($title_module)?>
       </div>
       <div class="card-body">
-        <div class="row">
-          <div class="col-sm-8">
-            <a href="<?=url("permission/add")?>" class="btn btn-sm btn-success btn-icon-text"><i class="fa fa-file btn-icon-prepend"></i><?=cclang("add_new")?></a>
-            <button type="button" id="reload" class="btn btn-sm btn-info-2 btn-icon-text"><i class="mdi mdi-backup-restore btn-icon-prepend"></i> <?=cclang("reload")?></button>
-            <a href="<?=url("permission/delete")?>" id="delete_select" class="btn btn-sm btn-danger btn-icon-text"><i class="ti-trash btn-icon-prepend"></i> <?=cclang("delete selected")?></a>
-        </div>
-          <div class="form-group col-sm-4 float-right">
-            <div class="input-group">
-              <input type="text" class="form-control" id="permission" style="height:35px!important" placeholder="Filter Permission">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-primary btn-icon-text" id="filter" style="height:35px!important" type="button"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
+        <form id="form" action="<?=$action?>" autocomplete="off">
+          <div class="form-group">
+            <label id="permission"><?=cclang("Permission")?> </label><i class="text-danger">*</i>
+            <input type="text" class="form-control form-control-sm" name="permission" value="<?=$permission?>">
           </div>
-        </div>
-        <table class="table table-bordered table-striped" id="table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-          <thead>
-            <tr>
-              <th><?=cclang("#")?></th>
-              <th><?=cclang("ID")?></th>
-              <th><?=cclang("Permission")?></th>
-              <th><?=cclang("Alias")?></th>
-              <th><?=cclang("Definition")?></th>
-              <th><?=cclang("action")?></th>
-            </tr>
-          </thead>
 
-        </table>
+          <div class="form-group">
+            <label id="definition"><?=cclang("Definition")?> </label>
+            <textarea class="form-control form-control-sm" name="definition" rows="3" cols="80"><?=$definition?></textarea>
+          </div>
 
+          <input type="hidden" name="button" value="<?=strtolower($button)?>">
+
+          <?php if ($button == "update"): ?>
+            <input class="form-control" type="hidden" name="last_permission" id="last_permission" value="<?=$permission?>">
+          <?php endif; ?>
+
+          <a href="<?=url($this->uri->segment(2))?>" class="btn btn-sm btn-danger"><?=cclang("cancel")?></a>
+          <button type="submit" id="submit" name="submit" class="btn btn-sm btn-primary"><?=cclang("save")?></button>
+
+        </form>
       </div>
     </div>
   </div>
@@ -41,135 +33,35 @@
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-var table;
-//datatables
-  table = $('#table').DataTable({
-
-      "processing": true, //Feature control the processing indicator.
-      "serverSide": true, //Feature control DataTables' server-side processing mode.
-      "order": [], //Initial no order.
-      "searching": false,
-      // "info": false,
-      "bLengthChange": false,
-      oLanguage: {
-          sProcessing: '<i class="fa fa-spinner fa-spin fa-fw"></i> Loading...'
-      },
-
-      // Load data for the table's content from an Ajax source
-      "ajax": {
-          "url": "<?php echo url("permission/json")?>",
-          "type": "POST",
-          "data":function(data)
-          {
-            data.permission = $("#permission").val();
-          }
-      },
-
-      //Set column definition initialisation properties.
-        "columnDefs": [
-        {   "className": "text-center",
-            "width":"10px",
-            "orderable":false,
-            "targets": 0, //first column / numbering column
-        },
-        {
-            "targets": 1, //first column / numbering column
-        },
-        {   "orderable":false,
-            "targets": 2, //first column / numbering column
-        },
-        {   "orderable":false,
-            "targets": 3, //first column / numbering column
-        },
-        {   "orderable":false,
-            "targets": 4, //first column / numbering column
-        },
-        {
-            "className": "text-center",
-            "orderable": false,
-            "targets": 5
-        },
-      ],
+$("#form").submit(function(e){
+e.preventDefault();
+var me = $(this);
+$("#submit").prop('disabled',true).html('Loading...');
+$(".form-group").find('.text-danger').remove();
+$.ajax({
+      url             : me.attr('action'),
+      type            : 'post',
+      data            :  new FormData(this),
+      contentType     : false,
+      cache           : false,
+      dataType        : 'JSON',
+      processData     :false,
+      success:function(json){
+        if (json.success==true) {
+          location.href = json.redirect;
+          return;
+        }else {
+          $("#submit").prop('disabled',false)
+                      .html('<?=cclang("save")?>');
+          $.each(json.alert, function(key, value) {
+            var element = $('#' + key);
+            $(element)
+            .closest('.form-group')
+            .find('.text-danger').remove();
+            $(element).after(value);
+          });
+        }
+      }
     });
-
-$("#filter").click(function(){
-  table.ajax.reload();
-});
-
-$("#reload").click(function(){
-	$("#permission").val("");
-  table.ajax.reload();
-});
-
-$(document).on("click","#delete",function(e){
-  e.preventDefault();
-  $('.modal-dialog').removeClass('modal-lg')
-                    .removeClass('modal-md')
-                    .addClass('modal-sm');
-  $("#modalTitle").text('<?=cclang("confirm")?>');
-  $('#modalContent').html(`<p class="mb-4"><?=cclang("delete_description")?></p>
-														<button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><?=cclang("cancel")?></button>
-	                          <button type='button' class='btn btn-primary btn-sm' id='ya-hapus' data-id=`+$(this).attr('alt')+`  data-url=`+$(this).attr('href')+`><?=cclang("delete_action")?></button>
-														`);
-  $("#modalGue").modal('show');
-});
-
-$(document).on('click','#ya-hapus',function(e){
-  $(this).prop('disabled',true)
-          .text('Processing...');
-  $.ajax({
-          url:$(this).data('url'),
-          type:'POST',
-          cache:false,
-          dataType:'json',
-          success:function(json){
-            $('#modalGue').modal('hide');
-            swal(json.msg, {
-              icon:json.type_msg
-            })
-            $('#table').DataTable().ajax.reload();
-          }
-        });
-});
-
-$(document).on("click","#delete_select",function(e){
-  e.preventDefault();
-  $('.modal-dialog').removeClass('modal-lg')
-                    .removeClass('modal-md')
-                    .addClass('modal-sm');
-  $("#modalTitle").text('<?=cclang("confirm")?>');
-  $('#modalContent').html(`<p class="mb-4"><?=cclang("delete_description")?></p>
-														<button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><?=cclang("cancel")?></button>
-	                          <button type='button' class='btn btn-primary btn-sm' id='ya-hapus-select'  data-url=`+$(this).attr('href')+`><?=cclang("delete_action")?></button>
-														`);
-  $("#modalGue").modal('show');
-});
-
-$(document).on('click','#ya-hapus-select',function(e){
-  var dataId = [];
-  $("input[type='checkbox']:checked").each(function() {
-      dataId.push($(this).val());
-  });
-
-  $(this).prop('disabled',true)
-          .text('Processing...');
-  $.ajax({
-          url:$(this).data('url'),
-          type:'POST',
-          data:'id='+dataId,
-          cache:false,
-          dataType:'json',
-          success:function(json){
-            $('#modalGue').modal('hide');
-            swal(json.msg, {
-              icon:json.type_msg
-            })
-            $('#table').DataTable().ajax.reload();
-          }
-        });
-});
-
-
 });
 </script>
