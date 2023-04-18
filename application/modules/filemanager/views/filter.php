@@ -1,16 +1,16 @@
 <form autocomplete="off">
   <div class="row">
 		<div class="form-group col-sm-12">
-			<input type="text" class="form-control form-control-sm" id="file_name" placeholder="File Name" />
+			<input type="text" class="form-control form-control-sm" id="file_name" placeholder="<?=cclang('File Name')?>" />
 		</div>
 
     <div class="form-group col-sm-12">
-			<input type="text" class="form-control form-control-sm" id="ket" placeholder="Ket" />
+			<input type="text" class="form-control form-control-sm" id="ket" placeholder="<?=cclang('Ket')?>" />
 		</div>
 
     <div class="col-sm-12 mt-2">
       <button type='button' class='btn btn-default btn-sm' data-dismiss='modal'><?=cclang("cancel")?></button>
-      <button type="button" class="btn btn-primary btn-sm" id="filter">Filter</button>
+      <button type="button" class="btn btn-primary btn-sm" id="filter"><?=cclang('Filter')?></button>
     </div>
   </div>
 </form>
