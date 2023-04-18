@@ -1,6 +1,6 @@
 <form id="form" action="<?=url("core/reset_password_action")?>">
   <div class="form-group row">
-      <label class="col-sm-4 col-form-label">Password</label>
+      <label class="col-sm-4 col-form-label"><?=cclang("Password")?></label>
       <div class="col-sm-8">
           <input class="form-control" placeholder="******" type="password" name="password" id="password">
       </div>
@@ -9,14 +9,14 @@
   <hr>
 
   <div class="form-group row">
-      <label class="col-sm-4 col-form-label">New Password</label>
+      <label class="col-sm-4 col-form-label"><?=cclang("New Password")?></label>
       <div class="col-sm-8">
           <input class="form-control" placeholder="******" type="password" name="password_baru" id="password_baru">
       </div>
   </div>
 
   <div class="form-group row">
-      <label class="col-sm-4 col-form-label">Repeat Password</label>
+      <label class="col-sm-4 col-form-label"><?=cclang("Repeat Password")?></label>
       <div class="col-sm-8">
           <input class="form-control" placeholder="******" type="password" name="konfirmasi_password" id="konfirmasi_password">
       </div>
@@ -24,8 +24,8 @@
 
 
   <div class="text-right">
-    <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger">Cancel</button>
-    <button type="submit" id="submit" name="submit" class="btn btn-sm btn-primary">Reset Password</button>
+    <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><?=cclang("Cancel")?></button>
+    <button type="submit" id="submit" name="submit" class="btn btn-sm btn-primary"><?=cclang("Reset Password")?> </button>
   </div>
 </form>
 
