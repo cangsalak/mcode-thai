@@ -5,36 +5,44 @@
     <div class="card">
       <div class="card-body">
         <?=$this->load->view("menu")?>
-        <h4 class="card-title"><?=ucfirst($title_module)?> / Social Media</h4>
+        <h4 class="card-title"><?=ucfirst($title_module)?> / <?=cclang("Social Media")?></h4>
         <?php if (is_allowed("config_view_sosmed")): ?>
         <table class="table-setting table-striped table-hover">
           <tr>
-            <td class="table-title"><i class="ti-facebook cl-facebook"></i> Facebook</td>
+            <td class="table-title"><i class="ti-facebook cl-facebook"></i> <?=cclang("Facebook")?></td>
             <td>
               <a href="javascript:void(0);" id="facebook" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="50" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('facebook')?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title"><i class="ti-instagram cl-instagram"></i> Instagram</td>
+            <td class="table-title"><i class="ti-instagram cl-instagram"></i> <?=cclang("Instagram")?></td>
             <td>
               <a href="javascript:void(0);" id="instagram" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="51" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('instagram')?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title"><i class="ti-youtube cl-youtube"></i> Youtube</td>
+            <td class="table-title"><i class="ti-youtube cl-youtube"></i> <?=cclang("Youtube")?></td>
             <td>
               <a href="javascript:void(0);" id="youtube" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="52" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('youtube')?></a>
             </td>
           </tr>
 
           <tr>
-            <td class="table-title"><i class="ti-twitter cl-twitter"></i> Twitter</td>
+            <td class="table-title"><i class="ti-twitter cl-twitter"></i> <?=cclang("Twitter")?></td>
             <td>
               <a href="javascript:void(0);" id="twitter" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="53" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('twitter')?></a>
             </td>
           </tr>
+
+          <tr>
+            <td class="table-title"><i class="ti-layers cl-layers"></i> <?=cclang("Web Site")?></td>
+            <td>
+              <a href="javascript:void(0);" id="website" data-url="<?=url("setting/update_action")?>" data-type="text" data-pk="54" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('website')?></a>
+            </td>
+          </tr>
+
         </table>
       <?php else: ?>
         <?php $this->load->view("core/error403") ?>
@@ -86,6 +94,15 @@ $(document).ready(function(){
   });
 
   $('#twitter').editable({
+    inputclass: 'form-control-sm',
+    success: function(data) {
+     if (data.success != true) {
+       return data.msg;
+     }
+   }
+  });
+
+  $('#website').editable({
     inputclass: 'form-control-sm',
     success: function(data) {
      if (data.success != true) {
