@@ -7,12 +7,12 @@
       <div class="card-body">
         <form id="form" action="<?=$action?>" autocomplete="off">
           <div class="form-group">
-            <label id="group">Group </label><i class="text-danger">*</i>
+            <label id="group"><?=cclang("Group")?> </label><i class="text-danger">*</i>
             <input type="text" class="form-control form-control-sm" name="group" value="<?=$group?>">
           </div>
 
           <div class="form-group">
-            <label id="definition">Definition </label>
+            <label id="definition"><?=cclang("Definition")?> </label>
             <textarea class="form-control" name="definition" rows="3" cols="80"><?=$definition?></textarea>
           </div>
 
