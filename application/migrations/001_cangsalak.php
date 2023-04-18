@@ -31,19 +31,19 @@ class Migration_mpampam extends CI_Migration {
      $this->dbforge->add_key('id_setting', TRUE);
      $this->dbforge->create_table('setting');
     $insert_setting = [
-      [ "id_setting"  =>1 ,"group" => "general", "options" => "web_name" , "value" => "M-CODE CRUD GEBERATOR CODEIGNITER" ],
-      [ "id_setting"  =>2 ,"group" => "general", "options" => "web_domain" , "value" => "www.m-code.dev" ],
+      [ "id_setting"  =>1 ,"group" => "general", "options" => "web_name" , "value" => "M-CODE THAILAND CRUD GEBERATOR CODEIGNITER" ],
+      [ "id_setting"  =>2 ,"group" => "general", "options" => "web_domain" , "value" => "https://1.20.167.69" ],
       [ "id_setting"  =>3 ,"group" => "general", "options" => "web_owner" , "value" => "mpampam.dev/programmer_jalanan" ],
-      [ "id_setting"  =>4 ,"group" => "general", "options" => "email" , "value" => "mpampam@dev.com" ],
-      [ "id_setting"  =>5 ,"group" => "general", "options" => "telepon" , "value" => "085288888888" ],
-      [ "id_setting"  =>6 ,"group" => "general", "options" => "address" , "value" => "-" ],
+      [ "id_setting"  =>4 ,"group" => "general", "options" => "email" , "value" => "cangsalak@gmail.com" ],
+      [ "id_setting"  =>5 ,"group" => "general", "options" => "telepon" , "value" => "+66890167912" ],
+      [ "id_setting"  =>6 ,"group" => "general", "options" => "address" , "value" => "155/55 หมู่ 3 ต.ชัยนารายณ์ อ.ชัยบาดาล จ.ลพบุรี 15130" ],
       [ "id_setting"  =>7 ,"group" => "general", "options" => "logo" , "value" => "231120043259_logos1.png" ],
       [ "id_setting"  =>8 ,"group" => "general", "options" => "logo_mini" , "value" => "231120051100_logo_mini.png" ],
       [ "id_setting"  =>9 ,"group" => "general", "options" => "favicon" , "value" => "231120051803_favicon.ico" ],
-      [ "id_setting"  =>50 ,"group" => "sosmed", "options" => "facebook" , "value" => "https://facebook.com/mpampam" ],
-      [ "id_setting"  =>51 ,"group" => "general", "options" => "instagram" , "value" => "https://instagram/mpampam" ],
-      [ "id_setting"  =>52 ,"group" => "sosmed", "options" => "youtube" , "value" => "https://www.youtube.com/channel/UC1TlTaxRNdwrCqjBJ5zh6TA" ],
-      [ "id_setting"  =>53 ,"group" => "sosmed", "options" => "twitter" , "value" => "https://twitter/m_pampam" ],
+      [ "id_setting"  =>50 ,"group" => "sosmed", "options" => "facebook" , "value" => "https://www.facebook.com/maxcangsalak" ],
+      [ "id_setting"  =>51 ,"group" => "general", "options" => "instagram" , "value" => "#" ],
+      [ "id_setting"  =>52 ,"group" => "sosmed", "options" => "youtube" , "value" => "https://www.youtube.com/channel/UCQMpYmqbXlUBEJ_z3XPupdA" ],
+      [ "id_setting"  =>53 ,"group" => "sosmed", "options" => "twitter" , "value" => "#" ],
       [ "id_setting"  =>60 ,"group" => "config", "options" => "maintenance_status" , "value" => "N" ],
       [ "id_setting"  =>61 ,"group" => "config", "options" => "user_log_status" , "value" => "N" ]
     ];
@@ -109,7 +109,7 @@ class Migration_mpampam extends CI_Migration {
     $this->dbforge->add_key('id_user', TRUE);
     $this->dbforge->create_table('auth_user');
     $this->db->query("INSERT INTO `auth_user` (`id_user`, `name`, `photo`, `email`, `password`, `token`, `last_login`, `ip_address`, `is_active`, `created`, `modified`, `is_delete`) VALUES
-                      (1, 'Developer', '', 'mpampam@dev.com', '$2y$10$0uNl2k9rRVQLEvXnwNZa3eiqhY7e1LE/uaXsRBnYZZhOY7aWGEgG.', 'wg9sBvrdm03cPfnTYrba5b4mGWEErioH', '2020-11-25 13:11:00', '::1', '1', '2020-02-14 00:01:19', '2020-11-24 04:25:27', '0')");
+                      (1, 'Developer', '', 'cangsalak@gmail.com', '$2y$10$0uNl2k9rRVQLEvXnwNZa3eiqhY7e1LE/uaXsRBnYZZhOY7aWGEgG.', 'wg9sBvrdm03cPfnTYrba5b4mGWEErioH', '2023-04-14 13:11:00', '::1', '1', '2023-04-14 00:01:19', '2023-04-14 04:25:27', '0')");
     //end table auth_user
 
 

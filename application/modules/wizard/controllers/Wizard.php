@@ -30,7 +30,7 @@ class Wizard extends CI_Controller{
 			'application/config/config.php',
       'application/config/app.php',
       'application/config/app.cfg',
-			'application/migrations/001_mpampam.php',
+			'application/migrations/001_cangsalak.php',
 		];
 
 
