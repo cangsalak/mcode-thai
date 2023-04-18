@@ -197,7 +197,7 @@ $(document).ready(function(){
   $('#language').editable({
     inputclass: 'form-control-sm',
     source: [
-  			{value: 'indonesia', text: 'indonesia'},
+  			{value: 'thailand', text: 'thailand'},
   			{value: 'english', text: 'english'}
   		],
     success: function(data) {
