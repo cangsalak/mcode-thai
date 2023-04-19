@@ -28,11 +28,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <?php 
+    $red = mt_rand(0, 255);
+    $green = mt_rand(0, 255);
+    $blue = mt_rand(0, 255);
 
+    $color_gen2 = sprintf("#%02x%02x%02x", $red, $green, $blue); 
+    $color_gen = 'transparent'; 
+    $color = substr(md5(setting("color_theme")), 0, 6); // Get the first 6 characters of the MD5 hash
+  ?>
   <style media="screen">
-    
     *{
       font-family: 'Sarabun', sans-serif;
+    }
+    .navbar .navbar-menu-wrapper, .card-header{
+      background: <?=$color_gen2;?>  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #<?=$color?>, <?=$color_gen?>, <?=$color_gen2;?>);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #<?=$color?>, <?=$color_gen?>, <?=$color_gen2;?>); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
     .form-group label{
       font-weight: 600;
