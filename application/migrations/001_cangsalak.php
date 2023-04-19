@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_mpampam extends CI_Migration {
+class Migration_cangsalak extends CI_Migration {
 
 
   public function up()
@@ -44,6 +44,7 @@ class Migration_mpampam extends CI_Migration {
       [ "id_setting"  =>51 ,"group" => "general", "options" => "instagram" , "value" => "#" ],
       [ "id_setting"  =>52 ,"group" => "sosmed", "options" => "youtube" , "value" => "https://www.youtube.com/channel/UCQMpYmqbXlUBEJ_z3XPupdA" ],
       [ "id_setting"  =>53 ,"group" => "sosmed", "options" => "twitter" , "value" => "#" ],
+      [ "id_setting"  =>53 ,"group" => "sosmed", "options" => "website" , "value" => "https://1.20.167.69" ],
       [ "id_setting"  =>60 ,"group" => "config", "options" => "maintenance_status" , "value" => "N" ],
       [ "id_setting"  =>61 ,"group" => "config", "options" => "user_log_status" , "value" => "N" ]
     ];
@@ -369,9 +370,9 @@ class Migration_mpampam extends CI_Migration {
   $this->dbforge->add_key('id', TRUE);
   $this->dbforge->create_table('filemanager');
   $this->db->query("INSERT INTO `filemanager` (`id`, `file_name`, `ket`, `created`, `update`) VALUES
-                  (Null, '231120043259_logos1.png', 'LOGO APLIKASI', '2020-11-23 04:32:59', NULL),
-                  (Null, '231120051100_logo_mini.png', 'LOGO MINI', '2020-11-23 05:11:00', NULL),
-                  (Null, '231120051803_favicon.ico', 'FAVICON', '2020-11-23 05:18:03', NULL)");
+                  (Null, '190423102201_231120043259_log.png', 'LOGO APLIKASI', '2023-04-19 04:32:59', NULL),
+                  (Null, '190423102222_231120051100_log.png', 'LOGO MINI', '2023-04-19 05:11:00', NULL),
+                  (Null, '190423102237_favicon_16x16.png', 'FAVICON', '2023-04-19 05:18:03', NULL)");
   // end filemanager
 
 
