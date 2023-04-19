@@ -49,6 +49,15 @@
                 <a href="javascript:void(0)" id="address" data-url="<?=url("setting/update_action")?>" data-type="textarea" data-rows="4"  data-pk="6" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('address')?></a>
               </td>
             </tr>
+
+            
+            <tr>
+              <td class="table-title"><?=cclang("Theme Color")?></td>
+              <td>
+                <a href="javascript:void(0);" id="color_theme" data-url="<?=url("setting/update_action")?>" data-type="select" data-value="<?=setting('color_theme')?>" data-pk="62" class="editable editable-click" title="<?=cclang("update")?>"><?=setting('color_theme');?></a>
+              </td>
+            </tr>
+
           </table>
         <?php else: ?>
           <?php $this->load->view("core/error403") ?>
@@ -123,6 +132,33 @@
        if (data.success != true) {
          return data.msg;
        }
+     }
+    });
+
+    $('#color_theme').editable({
+      inputclass: 'form-control-sm',
+      source: [
+  			{value: 'Gold', text: 'Gold'},
+  			{value: 'Yellow', text: 'Yellow'},
+  			{value: 'Fuchsia', text: 'Fuchsia'},
+  			{value: 'MediumOrchid', text: 'MediumOrchid'},
+  			{value: 'RebeccaPurple', text: 'RebeccaPurple'},
+  			{value: 'BlueViolet', text: 'BlueViolet'},
+  			{value: 'Indigo', text: 'Indigo'},
+  			{value: 'GreenYellow', text: 'GreenYellow'},
+  			{value: 'Lime', text: 'Lime'},
+  			{value: 'SpringGreen', text: 'SpringGreen'},
+  			{value: 'Green', text: 'Green'},
+  			{value: 'DarkCyan', text: 'DarkCyan'},
+  			{value: 'Aqua', text: 'Aqua'},
+  			{value: 'SteelBlue', text: 'SteelBlue'},
+  			{value: 'SkyBlue', text: 'SkyBlue'}
+  		],
+      success: function(data) {
+       if (data.success != true) {
+         return data.msg;
+       }
+     location.reload(); // แทรกฟังก์ชันเพื่อ refesh หน้าเว็บ
      }
     });
 
