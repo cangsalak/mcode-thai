@@ -8,7 +8,9 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-              <?=imgView($photo,"img-thumbnail","border-radius:100%;height:100px;width:100px;margin-bottom:10px;border:3px solid #c2c2c2")?>
+            <?php if(!empty($photo)):?>
+              <?=imgView(($photo),"img-thumbnail","border-radius:100%;height:100px;width:100px;margin-bottom:10px;border:3px solid #c2c2c2")?>
+            <?php endif;?>
             </div>
 
           <?php echo form_open($action, array( 'id' => 'form', 'autocomplete' => 'off' ));?>
