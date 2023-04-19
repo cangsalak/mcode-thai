@@ -30,7 +30,7 @@
           <tr>
             <td class="table-title"><?=cclang("Encryption Url")?></td>
             <td>
-              <a href="javascript:void(0);" id="encryption_url" data-url="<?=url("setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_url") == true ? cclang('TRUE'):cclang('No')?></a>
+              <a href="javascript:void(0);" id="encryption_url" data-url="<?=url("setting/update_action")?>" data-type="select" data-pk="999" class="editable editable-click" title="<?=cclang("update")?>"><?=$this->config->item("encryption_url") == true ? cclang('Yes'):cclang('No')?></a>
             </td>
           </tr>
 
@@ -129,13 +129,14 @@ $(document).ready(function(){
   $('#encryption_url').editable({
     inputclass: 'form-control-sm',
     source: [
-  			{value: "TRUE", text: '<?=cclang('TRUE')?>'},
-  			{value: "FALSE", text: '<?=cclang('FALSE')?>'}
+  			{value: "TRUE", text: '<?=cclang('Yes')?>'},
+  			{value: "FALSE", text: '<?=cclang('No')?>'}
   		],
     success: function(data) {
      if (data.success != true) {
        return data.msg;
      }
+     location.reload(); // แทรกฟังก์ชันเพื่อ refesh หน้าเว็บ
    }
   });
 
